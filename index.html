@@ -54,7 +54,7 @@
             animation: slideInFromTop 2s ease-out;
             z-index: 2;
         }
- .hero {
+   .hero {
     position: relative;
     text-align: center;
     padding: 40px 20px;
@@ -69,7 +69,8 @@
   }
 
   .hero-photos img {
-    width: 180px;
+    width: 240px;   /* lớn hơn trên màn hình rộng */
+    max-width: 90%;
     height: auto;
     border-radius: 12px;
     object-fit: cover;
@@ -79,7 +80,13 @@
   /* Responsive cho mobile */
   @media (max-width: 768px) {
     .hero-photos img {
-      width: 120px;
+      width: 180px; /* tăng kích thước mobile */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-photos img {
+      width: 160px; /* vẫn fit với màn hình rất nhỏ */
     }
   }
         .couple-names {

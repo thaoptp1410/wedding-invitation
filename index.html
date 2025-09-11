@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phương Thảo & Quốc Hiếu - Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@300;400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --peach: #FFD4C4;
+            --blush-pink: #F8BBD9;
+            --cream: #FFF8F0;
+            --soft-gold: #D4AF37;
+            --text-dark: #2C2C2C;
+            --text-light: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(248, 187, 217, 0.3), rgba(248, 187, 217, 0.1)), 
+                        url('img/hero-bg.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            animation: slideInFromTop 2s ease-out;
+            z-index: 2;
+        }
+
+        .couple-names {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .wedding-date {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .floral-accent {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.6;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floral-accent-2 {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            font-size: 2.5rem;
+            opacity: 0.5;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        .floral-accent-3 {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            font-size: 2rem;
+            opacity: 0.4;
+            animation: rotateIn 2s ease-out, float 5s ease-in-out infinite 2s;
+        }
+
+        /* Couple Section */
+        .couple-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF 100%);
+        }
+
+        .couple-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .couple-card {
+            text-align: center;
+        }
+
+        .couple-card:first-child {
+            animation: fadeInLeft 1.2s ease-out;
+        }
+
+        .couple-card:last-child {
+            animation: fadeInRight 1.2s ease-out;
+        }
+
+        .couple-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 8px solid var(--peach);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .couple-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .couple-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .couple-description {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Story Timeline */
+        .story-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 60px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--blush-pink);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 60%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 60%;
+            text-align: left;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: var(--soft-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 2;
+            animation: bounceIn 1s ease-out;
+        }
+
+        .timeline-icon:hover {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .timeline-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        /* Ceremony Details */
+        .ceremony-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #FFF 0%, var(--cream) 100%);
+        }
+
+        .ceremony-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .ceremony-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .ceremony-details {
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid var(--peach);
+        }
+
+        .ceremony-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--soft-gold);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background: var(--peach);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-top: 20px;
+            margin-bottom: 20px;   /* tạo khoảng cách với phần sau */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            background: var(--cream);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 200px);
+            gap: 15px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+            animation-delay: 0.1s;
+        }
+
+        .gallery-item:nth-child(2) {
+            grid-column: 3;
+            grid-row: 1;
+            animation-delay: 0.2s;
+        }
+
+        .gallery-item:nth-child(3) {
+            grid-column: 4;
+            grid-row: 1 / 3;
+            animation-delay: 0.3s;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-column: 3;
+            grid-row: 2;
+            animation-delay: 0.4s;
+        }
+
+        .gallery-item:nth-child(5) {
+            grid-column: 1;
+            grid-row: 3;
+            animation-delay: 0.5s;
+        }
+
+        .gallery-item:nth-child(6) {
+            grid-column: 2 / 4;
+            grid-row: 3;
+            animation-delay: 0.6s;
+        }
+
+        .gallery-item:nth-child(7) {
+            grid-column: 4;
+            grid-row: 3 / 5;
+            animation-delay: 0.7s;
+        }
+
+        .gallery-item:nth-child(8) {
+            grid-column: 1 / 4;
+            grid-row: 4;
+            animation-delay: 0.8s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05) rotate(2deg);
+            z-index: 10;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            filter: brightness(1.1) saturate(1.2);
+        }
+
+        /* RSVP Section */
+        .rsvp-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(255, 212, 196, 0.3), rgba(255, 212, 196, 0.1)), 
+                        url('img/rsvp-bg.jpg') center/cover no-repeat;
+        }
+
+        .rsvp-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px;
+            border-radius: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .rsvp-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            text-align: center;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--peach);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--soft-gold);
+        }
+
+        .form-textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .rsvp-button {
+            width: 100%;
+            padding: 18px;
+            background: var(--soft-gold);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .rsvp-button:hover {
+            background: #B8941F;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            animation: none;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 60px 0;
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .footer-initials {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-hashtag {
+            font-size: 1.2rem;
+            color: var(--peach);
+            margin-bottom: 30px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--soft-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-200deg);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .couple-names {
+                font-size: 3rem;
+            }
+
+            .wedding-date {
+                font-size: 1.2rem;
+            }
+
+            .couple-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .couple-photo {
+                width: 200px;
+                height: 200px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 80px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-icon {
+                left: 30px;
+            }
+
+            .ceremony-container {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(6, 150px);
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: 1 / 3;
+                grid-row: 1 / 3;
+            }
+
+            .gallery-item:nth-child(2) {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            .gallery-item:nth-child(3) {
+                grid-column: 2;
+                grid-row: 3;
+            }
+
+            .gallery-item:nth-child(4) {
+                grid-column: 1 / 3;
+                grid-row: 4;
+            }
+
+            .gallery-item:nth-child(5) {
+                grid-column: 1;
+                grid-row: 5;
+            }
+
+            .gallery-item:nth-child(6) {
+                grid-column: 2;
+                grid-row: 5;
+            }
+
+            .gallery-item:nth-child(7) {
+                grid-column: 1;
+                grid-row: 6;
+            }
+
+            .gallery-item:nth-child(8) {
+                grid-column: 2;
+                grid-row: 6;
+            }
+
+            .rsvp-card {
+                padding: 40px 30px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .couple-names {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .rsvp-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Lightbox for Gallery */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floral-accent">🌸</div>
+        <div class="floral-accent-2">🌺</div>
+        <div class="floral-accent-3">🌷</div>
+        <div class="hero-content">
+            <h1 class="couple-names"> Quốc Hiếu & Phương Thảo </h1>
+            <p class="wedding-date">Thứ 7, 01/11/2025</p>
+        </div>
+    </section>
+
+    <!-- Couple Section -->
+    <section class="couple-section">
+        <div class="container">
+            <div class="couple-container">
+                <div class="couple-card">
+                    <img src="image/bride11.jpg" alt="Phương Thảo - Cô dâu" class="couple-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiMyQzJDMkMiPkJyaWRlIFBob3RvPC90ZXh0Pgo8L3N2Zz4=';">
+                    <h3 class="couple-title">Cô dâu</h3>
+                    <p class="couple-description">Phương Thảo - Cô nàng nhỏ nhắn, luôn mang theo nụ cười rạng rỡ và sự đáng yêu. Thảo như một gam màu tươi sáng, khiến mọi người xung quanh đều cảm thấy ấm áp và vui vẻ.</p>
+                </div>
+                <div class="couple-card">
+                    <img src="image/DSC03430.jpg" alt="Quốc Hiếu - The Groom" class="couple-photo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiMyQzJDMkMiPkdyb29tIFBob3RvPC90ZXh0Pgo8L3N2Zz4=';">
+                    <h3 class="couple-title">Chú rể</h3>
+                    <p class="couple-description">Quốc Hiếu - Chú bộ đội hiền lành, mạnh mẽ và đầy trách nhiệm. Dù khoác lên mình màu áo xanh rắn rỏi, nhưng khi ở bên Thảo, anh luôn dịu dàng, ấm áp và chan chứa yêu thương.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Timeline -->
+    <section class="story-section">
+        <div class="container">
+            <h2 class="section-title">Our Love Story</h2>
+            <div class="timeline">  
+                <div class="timeline-item">
+                    <div class="timeline-icon">💌</div>
+                    <div class="timeline-content">
+                        <img src="image/IMG_5315.jpg" alt="Nghe kể về nhau" class="timeline-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiMyQzJDMkMiPkZpcnN0IE1ldCBQaG90bzwvdGV4dD4KPC9zdmc+';">
+                        <h4 class="timeline-title">Nghe kể về nhau</h4>
+                        <p>Chúng mình bắt đầu được xuất hiện cùng nhau trong những câu chuyện của những người thân quen.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">❤️</div>
+                    <div class="timeline-content">
+                        <img src="image/Travel.jpg" alt="First Travel" class="timeline-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiMyQzJDMkMiPkZpcnN0IERhdGUgUGhvdG88L3RleHQ+Cjwvc3ZnPg==';">
+                        <h4 class="timeline-title">Chuyến du lịch đầu</h4>
+                        <p>Chúng mình đã có chuyến du lịch đầu tiên trên Xóm Mừng- Hòa Bình nhân dịp tháng sinh nhật của 2 đứa</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">💍</div>
+                    <div class="timeline-content">
+                        <img src="image/langBac.jpg" alt="Yêu nước yêu em" class="timeline-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiMyQzJDMkMiPlByb3Bvc2FsIFBob3RvPC90ZXh0Pgo8L3N2Zz4=';">
+                        <h4 class="timeline-title">Yêu nước yêu em</h4>
+                        <p>James proposed at the same coffee shop where we first met, with a ring hidden in Emma's favorite lavender latte. She said yes before he could even finish asking!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Ceremony Details -->
+<section class="ceremony-section">
+  <div class="container">
+    <div class="ceremony-container">
+      <img src="image/anh1.jpg" alt="Wedding Venue" class="ceremony-image"
+        onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDUwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjI1MCIgeT0iMjA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiMyQzJDMkMiPldlZGRpbmcgVmVudWU8L3RleHQ+Cjwvc3ZnPg==';">
+
+      <div class="ceremony-details">
+        <h3 class="ceremony-title">Chi tiết hôn lễ</h3>
+
+        <div class="detail-item">
+          <span class="detail-label">Ngày:</span> Thứ Bảy, ngày 01/11/2025
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Bữa cơm thân mật:</span> 09:30 AM
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Giờ tổ chức hôn lễ:</span> 01:15 PM
+        </div>
+
+<!-- Nhà trai -->
+<div class="detail-item">
+  <span class="detail-label">Nhà trai:</span> thôn Phú Bình, xã Nam Hồng, tỉnh Ninh Bình
+</div>
+<div class="map-placeholder">
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d862.275443550414!2d106.23903441061263!3d20.325189846334332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1svi!2s!4v1757519733160!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<!-- Nhà gái -->
+<div class="detail-item">
+  <span class="detail-label">Nhà gái:</span> thôn Thượng Trà, xã Nam Ninh, tỉnh Ninh Bình
+</div>
+<div class="map-placeholder">
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d215.57484811760378!2d106.2559514568394!3d20.32085172158393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1svi!2s!4v1757519838491!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Our Memories</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('image/DVD09735.jpg')">
+                    <img src="image/DVD09735.jpg" alt="Gallery Photo 1" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMyQzJDMkMiPkdhbGxlcnkgMTwvdGV4dD4KPC9zdmc+';">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('image/DSC03053.jpg')">
+                    <img src="image/DSC03053.jpg" alt="Gallery Photo 2" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMyQzJDMkMiPkdhbGxlcnkgMjwvdGV4dD4KPC9zdmc+';">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('image/anhcuoi.jpg')">
+                    <img src="image/anhcuoi.jpg" alt="Gallery Photo 3" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMyQzJDMkMiPkdhbGxlcnkgMzwvdGV4dD4KPC9zdmc+';">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('image/DSC02911.jpg')">
+                    <img src="image/DSC02911.jpg" alt="Gallery Photo 4" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMyQzJDMkMiPkdhbGxlcnkgNDwvdGV4dD4KPC9zdmc+';">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('image/DVD09690.jpg')">
+                    <img src="image/DVD09690.jpg" alt="Gallery Photo 5" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMyQzJDMkMiPkdhbGxlcnkgNTwvdGV4dD4KPC9zdmc+';">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('image/DSC02865.jpg')">
+                    <img src="image/DSC02865.jpg" alt="Gallery Photo 6" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMyQzJDMkMiPkdhbGxlcnkgNjwvdGV4dD4KPC9zdmc+';">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('image/DVD09840.jpg')">
+                    <img src="image/DVD09840.jpg" alt="Gallery Photo 7" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMyQzJDMkMiPkdhbGxlcnkgNzwvdGV4dD4KPC9zdmc+';">
+                </div>
+                <div class="gallery-item" onclick="openLightbox('image/anh4.jpg')">
+                    <img src="image/anh4.jpg" alt="Gallery Photo 8" class="gallery-image" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjUwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDI1MCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyNTAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjEyNSIgeT0iMTMwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiMyQzJDMkMiPkdhbGxlcnkgODwvdGV4dD4KPC9zdmc+';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section">
+        <div class="container">
+            <div class="rsvp-card">
+                <h2 class="rsvp-title">Xác nhận tham gia</h2>
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Họ và tên</label>
+                        <input type="text" id="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="guests">Số lượng tham dự</label>
+                        <input type="number" id="guests" class="form-input" min="1" max="5" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Đôi lời yêu thương</label>
+                        <textarea id="message" class="form-textarea" placeholder="Share your excitement or any special requests..."></textarea>
+                    </div>
+                    <button type="submit" class="rsvp-button">Xác nhận</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-initials">H & T</div>
+            <div class="footer-hashtag">#HieuAndThao</div>
+            <div class="social-icons">
+                <a href="#" class="social-icon">📘</a>
+                <a href="#" class="social-icon">📷</a>
+                <a href="#" class="social-icon">🐦</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-image" id="lightboxImage" alt="Gallery Image">
+    </div>
+
+    <script>
+        // RSVP Form Submission
+        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const guests = document.getElementById('guests').value;
+            const message = document.getElementById('message').value;
+            
+            // Show confirmation message
+            alert(`Cảm ơn ${name}! Lời xác nhận cho ${guests} khách mời đã được xác nhận. Hẹn gặp lại vào ngày hạnh phúc của vợ chồng mình!`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Gallery Lightbox
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            
+            lightboxImage.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        // Smooth scroll animation on page load
+        window.addEventListener('load', function() {
+            const elements = document.querySelectorAll('.couple-card, .timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979c88ed83b72416',t:'MTc1Njk3ODkyNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

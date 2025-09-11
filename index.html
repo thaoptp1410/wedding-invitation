@@ -39,8 +39,11 @@
         }
         /* Hero Section */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(248, 187, 217, 0.3), rgba(248, 187, 217, 0.1)), 
+    min-height: 100vh;       /* vẫn full màn hình nhưng cho phép co dãn */
+    flex-direction: column;  /* xếp theo cột */
+    align-items: center;     /* căn giữa ngang */
+    justify-content: flex-start; /* đẩy nội dung lên trên */
+    padding-top: 20px;       /* thêm khoảng cách nhỏ ở trên (tùy chỉnh) */            background: linear-gradient(rgba(248, 187, 217, 0.3), rgba(248, 187, 217, 0.1)), 
                         url('img/hero-bg.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -54,7 +57,7 @@
             animation: slideInFromTop 2s ease-out;
             z-index: 2;
         }
-   .hero {
+ .hero {
     position: relative;
     text-align: center;
     padding: 40px 20px;
@@ -69,8 +72,7 @@
   }
 
   .hero-photos img {
-    width: 240px;   /* lớn hơn trên màn hình rộng */
-    max-width: 90%;
+    width: 180px;
     height: auto;
     border-radius: 12px;
     object-fit: cover;
@@ -80,15 +82,25 @@
   /* Responsive cho mobile */
   @media (max-width: 768px) {
     .hero-photos img {
-      width: 180px; /* tăng kích thước mobile */
+      width: 120px;
     }
+  }/* Chỉnh riêng cho mobile */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 10px;     /* gần như sát đỉnh */
+    padding-bottom: 10px;  /* thu gọn khoảng trống dưới */
+    min-height: auto;      /* bỏ chiều cao tối thiểu nếu có */
   }
 
-  @media (max-width: 480px) {
-    .hero-photos img {
-      width: 160px; /* vẫn fit với màn hình rất nhỏ */
-    }
+  .hero-content {
+    margin-top: 0;
   }
+
+  .couple-container {
+    margin-top: 5px;  /* dính sát hơn phần hero */
+  }
+}
+
         .couple-names {
             font-family: 'Dancing Script', cursive;
             font-size: 4.5rem;
@@ -887,8 +899,6 @@
     </div>
   </div>
 </section>
-
-
     <!-- Story Timeline -->
     <section class="story-section">
         <div class="container">

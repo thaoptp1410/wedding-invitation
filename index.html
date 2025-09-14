@@ -154,12 +154,29 @@
 }
 
         .couple-names {
-            font-family: 'Dancing Script', cursive;
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        font-family: 'Dancing Script', cursive;
+        font-size: 2.5rem;
+        line-height: 1.4;
+        width: 100%;
+        }
+
+        .couple-names .groom {
+        text-align: left;
+        display: block;
+        }
+
+        .couple-names .and {
+        text-align: center;
+        display: block;
+        font-size: 2rem;
+        color: #b56576; /* nhấn màu */
+        }
+
+        .couple-names .bride {
+        text-align: right;
+        display: block;
         }
 
         .wedding-date {
@@ -748,9 +765,29 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .couple-names {
-                font-size: 3rem;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            line-height: 1.4;
+            width: 100%;
+            }
+            .couple-names .groom {
+            text-align: left;
+            display: block;
             }
 
+            .couple-names .and {
+            text-align: center;
+            display: block;
+            font-size: 2rem;
+            color: #b56576; /* nhấn màu */
+            }
+
+            .couple-names .bride {
+            text-align: right;
+            display: block;
+            }
             .wedding-date {
                 font-size: 1.2rem;
             }
@@ -947,7 +984,11 @@
   <div class="floral-accent-2">🌺</div>
   <div class="floral-accent-3">🌷</div>
   <div class="hero-content">
-    <h1 class="couple-names">Quốc Hiếu & Phương Thảo</h1>
+    <h1 class="couple-names">
+  <span class="groom">Quốc Hiếu</span>
+  <span class="and">&</span>
+  <span class="bride">Phương Thảo</span>
+</h1>
     <p class="wedding-date">Thứ 7, 01/11/2025</p>
  <!-- Calendar -->
     <div class="calendar">

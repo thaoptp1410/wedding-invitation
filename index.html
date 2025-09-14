@@ -153,31 +153,47 @@
   }
 }
 
-        .couple-names {
-        display: flex;
-        flex-direction: column;
-        font-family: 'Dancing Script', cursive;
-        font-size: 2.5rem;
-        line-height: 1.4;
-        width: 100%;
-        }
+.couple-names {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  line-height: 1.4;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px; /* cho cân với mobile */
+}
 
-        .couple-names .groom {
-        text-align: left;
-        display: block;
-        }
+.couple-names .groom {
+  text-align: left;
+  display: block;
+}
 
-        .couple-names .and {
-        text-align: center;
-        display: block;
-        font-size: 2rem;
-        color: #b56576; /* nhấn màu */
-        }
+.couple-names .and {
+  text-align: center;
+  display: block;
+  font-size: 2rem;
+  color: #b56576;
+  margin: 4px 0;
+}
 
-        .couple-names .bride {
-        text-align: right;
-        display: block;
-        }
+.couple-names .bride {
+  text-align: right;
+  display: block;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 480px) {
+  .couple-names {
+    font-size: 1.8rem;   /* giảm size */
+    line-height: 1.3;   /* thoáng hơn */
+  }
+
+  .couple-names .and {
+    font-size: 1.5rem;  /* nhỏ lại trên mobile */
+  }
+}
+
 
         .wedding-date {
             font-family: 'Playfair Display', serif;

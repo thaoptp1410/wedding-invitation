@@ -78,6 +78,52 @@
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
+  .calendar {
+  margin: 20px auto 0;
+  max-width: 320px;
+  border: 2px solid #d4b59e;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.calendar-header {
+  background: #6b4226;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 14px;
+}
+
+.calendar th {
+  background: #f2e7dc;
+  padding: 6px;
+  font-weight: 600;
+}
+
+.calendar td {
+  padding: 10px 0;
+  border: 1px solid #eee;
+}
+
+.calendar td.highlight {
+  background: #fde2e2;
+  color: #d6336c;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
 
   /* Responsive cho mobile */
   @media (max-width: 768px) {
@@ -180,7 +226,13 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
-
+        /* Trên mobile */
+@media (max-width: 768px) {
+  .couple-photo {
+      width: 85%;   /* ảnh chiếm 85% chiều ngang màn hình */
+      max-width: 300px; /* không vượt quá 300px để không bị quá to */
+  }
+}
         .couple-photo:hover {
             transform: scale(1.05);
         }
@@ -891,11 +943,46 @@
   <div class="hero-content">
     <h1 class="couple-names">Quốc Hiếu & Phương Thảo</h1>
     <p class="wedding-date">Thứ 7, 01/11/2025</p>
-
-    <!-- Ảnh cô dâu chú rể -->
-    <div class="hero-photos">
-      <img src="image/bride11.jpg" alt="Phương Thảo - Cô dâu">
-      <img src="image/DSC03430.jpg" alt="Quốc Hiếu - Chú rể">
+ <!-- Calendar -->
+    <div class="calendar">
+      <div class="calendar-header">
+        <span class="month">Tháng 11</span>
+        <span class="year">2025</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>CN</th>
+            <th>T2</th>
+            <th>T3</th>
+            <th>T4</th>
+            <th>T5</th>
+            <th>T6</th>
+            <th>T7</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td><td></td><td></td><td></td><td></td><td></td>
+            <td class="highlight">1 💖</td>
+          </tr>
+          <tr>
+            <td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+          </tr>
+          <tr>
+            <td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+          </tr>
+          <tr>
+            <td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+          </tr>
+          <tr>
+            <td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+          </tr>
+          <tr>
+            <td>30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>

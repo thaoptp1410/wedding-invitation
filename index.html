@@ -8,6 +8,7 @@
             href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@300;400;600&family=Lato:wght@300;400&display=swap"
             rel="stylesheet"
         />
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
         <style>
             :root {
                 --peach: #ffd4c4;
@@ -95,10 +96,12 @@
                 overflow: hidden;
                 background: #fff;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                font-family: 'Dancing Script', cursive; /* mềm mại, bay bổng */
+
             }
 
             .calendar-header {
-                background: #6b4226;
+                background: #a17d65;
                 color: #fff;
                 text-align: center;
                 padding: 8px;
@@ -106,6 +109,8 @@
                 font-size: 18px;
                 display: flex;
                 justify-content: space-between;
+                font-family: 'Playfair Display', serif; /* thanh lịch, sang trọng */
+               font-family: 'Lato', sans-serif; /* gọn gàng, dễ đọc */
             }
 
             .calendar table {
@@ -128,11 +133,23 @@
 
             .calendar td.highlight {
                 background: #fde2e2;
-                color: #d6336c;
+                color: #151515;
                 font-weight: bold;
                 border-radius: 6px;
             }
+            .calendar td.highlight {
+            position: relative;
+            text-align: center;
+            width: 40px;
+            height: 40px;
+            }
 
+            .calendar td.highlight span {
+            position: relative;
+            z-index: 2;
+            color: #111010;
+            font-weight: bold;
+            }
             /* Responsive cho mobile */
             @media (max-width: 768px) {
                 .hero-photos img {
@@ -369,10 +386,12 @@
             }
 
             .timeline-content {
+                font-family: 'Quicksand', sans-serif; /* nội dung dễ đọc */
                 background: white;
                 padding: 30px;
                 border-radius: 15px;
                 box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
             }
 
             .timeline-image {
@@ -1070,7 +1089,13 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td class="highlight">1 💖</td>
+                                <td class="highlight">
+                                <svg viewBox="0 0 32 29" width="36" height="32" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);">
+                                    <path d="M23.6,0c-2.6,0-5,1.3-6.6,3.3C15.4,1.3,13,0,10.4,0C4.7,0,0,4.7,0,10.4c0,11.2,16.9,18.6,16.9,18.6S33.8,21.6,33.8,10.4 C33.8,4.7,29.1,0,23.6,0z"
+                                        fill="none" stroke="#e63946" stroke-width="2"/>
+                                </svg>
+                                <span>1</span>
+                                </td>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -1132,15 +1157,15 @@
                         <div class="timeline-content">
                             <img
                                 src="image/IMG_5315.jpg"
-                                alt="Lần đầu gặp gỡ"
+                                alt="Ấn tượng đầu tiên"
                                 class="timeline-image"
                                 loading="lazy"
                                 decoding="async"
                                 fetchpriority="low"
                                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiMyQzJDMkMiPkZpcnN0IE1ldCBQaG90bzwvdGV4dD4KPC9zdmc+';"
                             />
-                            <h4 class="timeline-title">Lần đầu gặp gỡ</h4>
-                            <p></p>
+                            <h4 class="timeline-title">Ấn tượng đầu tiên</h4>
+                            <p>Vào một ngày đẹp trời, anh và em "tình cờ" xuất hiện trong một trận game. Ai mà ngờ được, trận game đó lại mở ra một câu chuyện “dài tập” đến tận bây giờ </p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1156,7 +1181,7 @@
                                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiMyQzJDMkMiPkZpcnN0IERhdGUgUGhvdG88L3RleHQ+Cjwvc3ZnPg==';"
                             />
                             <h4 class="timeline-title">Chuyến du lịch đầu</h4>
-                            <p></p>
+                            <p>Lần đầu cùng nhau 2 đứa thử “test độ bền tình yêu” bằng một chuyến đi xa. Nơi đó có cảnh đẹp, đồ ăn ngon nhưng hóa ra, người ngồi cạnh mới là “điểm đến” quan trọng nhất của chuyến đi</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -1172,14 +1197,13 @@
                                 onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDQwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRkZENEM0Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTA1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiMyQzJDMkMiPlByb3Bvc2FsIFBob3RvPC90ZXh0Pgo8L3N2Zz4=';"
                             />
                             <h4 class="timeline-title">Yêu nước yêu em</h4>
-                            <p></p>
+                            <p>Anh trong bộ quân phục chỉnh tề, vừa yêu Tổ quốc, vừa yêu em. Một tình yêu đôi đường – vững chắc và đáng tự hào. Và câu chuyện tình yêu của chúng mình không phải bằng lời nói, mà bằng cả cuộc đời phía trước</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Ceremony Details -->
+    <!-- Ceremony Details -->
         <section class="ceremony-section">
             <div class="container">
                 <div class="ceremony-container">
@@ -1212,48 +1236,77 @@
                         </div>
 
                         <div class="map-section">
-            <!-- Nhà trai -->
-            <div class="map-card">
-            <div class="detail-item">
-                <span class="detail-label">Nhà trai:</span>
-                thôn Phú Bình, xã Nam Hồng, tỉnh Ninh Bình
-            </div>
+<!-- Nhà trai -->
+<div class="map-card">
+  <div class="detail-item">
+    <span class="detail-label">Nhà trai:</span>
+    Phú Bình - Nam Hồng - Nam Trực - Nam Định
+  </div>
 
-            <div class="map-actions">
-                <!-- Xem vị trí -->
-                <a href="https://www.google.com/maps/search/?api=1&query=thôn+Phú+Bình,+xã+Nam+Hồng,+tỉnh+Ninh+Bình"
-                target="_blank">
-                📍 Xem bản đồ
-                </a>
+  <div class="map-actions">
+    <!-- Button Xem bản đồ -->
+    <a class="map-btn" 
+       href="https://www.google.com/maps/search/?api=1&query=Phú Bình, Nam Hồng, Nam Trực, Nam Định, Việt Nam" 
+       target="_blank">
+       📍 Xem bản đồ
+    </a>
 
-                <!-- Chỉ đường -->
-                <a href="https://www.google.com/maps/dir/?api=1&destination=thôn+Phú+Bình,+xã+Nam+Hồng,+tỉnh+Ninh+Bình"
-                target="_blank">
-                🗺️ Chỉ đường
-                </a>
-            </div>
-            </div>
-            <!-- Nhà gái -->
-            <div class="map-card">
-            <div class="detail-item">
-                <span class="detail-label">Nhà gái:</span>
-                thôn Thượng Trà, xã Nam Ninh, tỉnh Nam Định
-            </div>
+    <!-- Button Chỉ đường -->
+    <a class="map-btn" 
+       href="https://www.google.com/maps/dir/?api=1&destination=Phú Bình, Nam Hồng, Nam Trực, Nam Định, Việt Nam" 
+       target="_blank">
+       🗺️ Chỉ đường
+    </a>
+  </div>
+</div>
+<!-- Nhà gái -->
+<div class="map-card">
+  <div class="detail-item">
+    <span class="detail-label">Nhà gái:</span>
+    Thượng Trà - Nam Thanh - Nam Trực - Nam Định
+  </div>
 
-            <div class="map-actions">
-                <!-- Nút mở xem bản đồ -->
-                <a href="https://www.google.com/maps/search/?api=1&query=thôn+Thượng+Trà,+xã+Nam+Ninh,+tỉnh+Nam+Định" 
-                target="_blank">
-                📍 Xem bản đồ
-                </a>
+  <div class="map-actions">
+    <!-- Button Xem bản đồ -->
+    <a class="map-btn" 
+       href="https://www.google.com/maps/search/?api=1&query=Quần Trà, 87C4+42P, Thôn Nam Thành Tĩnh Gia, Xối Thượng, Nam Trực, Nam Định, Việt Nam" 
+       target="_blank">
+       📍 Xem bản đồ
+    </a>
 
-                <!-- Nút mở chỉ đường -->
-                <a href="https://www.google.com/maps/dir/?api=1&destination=thôn+Thượng+Trà,+xã+Nam+Ninh,+tỉnh+Nam+Định" 
-                target="_blank">
-                🗺️ Chỉ đường
-                </a>
-            </div>
-            </div>
+    <!-- Button Chỉ đường -->
+    <a class="map-btn" 
+       href="https://www.google.com/maps/dir/?api=1&destination=Quần Trà, 87C4+42P, Thôn Nam Thành Tĩnh Gia, Xối Thượng, Nam Trực, Nam Định, Việt Nam" 
+       target="_blank">
+       🗺️ Chỉ đường
+    </a>
+  </div>
+</div>
+
+<style>
+    .map-actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 10px; /* khoảng cách giữa các nút */
+    justify-content: center; /* canh giữa theo chiều ngang */
+}
+    .map-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #e5b285; /* màu cam ấm */
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s;
+    }
+
+.map-btn:hover {
+  background-color: #d35400; /* đậm hơn khi hover */
+}
+</style>
+
 
                         </div>
                     </div>
@@ -1409,7 +1462,7 @@
                                 class="form-input"
                                 min="1"
                                 max="5"
-                                value="1"
+                                value=""
                                 required
                             />
                         </div>
@@ -1456,23 +1509,40 @@
 
         <script>
             // RSVP Form Submission
-            document
-                .getElementById("rsvpForm")
-                .addEventListener("submit", function (e) {
-                    e.preventDefault();
+        document
+            .getElementById("rsvpForm")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
 
-                    const name = document.getElementById("name").value;
-                    const guests = document.getElementById("guests").value;
-                    const message = document.getElementById("message").value;
+                const name = document.getElementById("name").value;
+                const guests = document.getElementById("guests").value;
+                const message = document.getElementById("message").value;
 
-                    // Show confirmation message
-                    alert(
-                        `Cảm ơn ${name}! Lời xác nhận cho ${guests} khách mời đã được xác nhận. Hẹn gặp lại vào ngày hạnh phúc của vợ chồng mình!`,
-                    );
-
-                    // Reset form
-                    this.reset();
-                });
+                // Gửi dữ liệu tới Google Apps Script
+                fetch("https://script.google.com/macros/s/AKfycbz49PUk_hvfaYuADUqPsCCCG7FKYjqT6DgWgQvW4j64L8iUXTYicI5o6U27TVr52S-2-w/exec", {
+                    method: "POST",
+                    mode: "no-cors", // cần để không bị CORS block
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        guests: guests,
+                        message: message,
+                    }),
+                })
+                    .then(() => {
+                        alert(
+                            `Cảm ơn ${name}! Lời xác nhận cho ${guests} khách mời đã được lưu lại. Hẹn gặp lại vào ngày hạnh phúc ❤️`,
+                        );
+                        // Reset form
+                        document.getElementById("rsvpForm").reset();
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                        alert("Có lỗi xảy ra, vui lòng thử lại sau!");
+                    });
+            });
 
             // Gallery Lightbox
             function openLightbox(imageSrc) {

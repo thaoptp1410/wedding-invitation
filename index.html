@@ -1350,8 +1350,6 @@
   background-color: #d35400; /* đậm hơn khi hover */
 }
 </style>
-
-
                         </div>
                     </div>
                 </div>
@@ -1478,7 +1476,48 @@
                 </div>
             </div>
         </section>
+         <!-- Lightbox (ẩn ban đầu) -->
+    <div id="lightbox" class="lightbox">
+      <span class="close" onclick="closeLightbox()">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
 
+      <!-- Nút điều hướng -->
+      <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+      <a class="next" onclick="changeImage(1)">&#10095;</a>
+    </div>
+
+    <!-- Script quản lý ảnh -->
+    <script>
+    const images = [
+      "image/DVD09735.jpg",
+      "image/DSC03053.JPG",
+      "image/DSC03167_4 (2).jpg",
+      "image/DSC02911.JPG",
+      "image/DVD09690.jpg",
+      "image/DSC02865.JPG",
+      "image/DVD09840.jpg",
+      "image/anh4.jpg"
+    ];
+
+    let currentIndex = 0;
+
+    function openLightbox(src) {
+      currentIndex = images.indexOf(src);
+      document.getElementById("lightbox").style.display = "block";
+      document.getElementById("lightbox-img").src = src;
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+
+    function changeImage(step) {
+      currentIndex = (currentIndex + step + images.length) % images.length;
+      document.getElementById("lightbox-img").src = images[currentIndex];
+    }
+    </script>
+  </body>
+</html>
         <!-- RSVP Section -->
         <section class="rsvp-section">
             <div class="container">

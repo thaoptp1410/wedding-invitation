@@ -502,7 +502,7 @@
 
             /* Gallery Section */
             .gallery-section {
-                padding: 100px 0;
+                padding: 40px 0;
                 background: var(--cream);
             }
 
@@ -1093,15 +1093,40 @@
                 margin-top: 20px;  /* cách section phía trên */
                 margin-bottom: 20px; /* cách section RSVP */
             }
+                /* Toàn bộ section */
                 .gift-section {
-                text-align: center;
-                padding: 60px 20px;
+                    padding: 20px 0; /* khoảng cách trên dưới section */
                 }
 
-                .gift-desc {
-                margin-bottom: 30px;
-                font-size: 1rem;
-                color: #444;
+                /* Container */
+                .gift-section .container {
+                    max-width: 600px; /* gọn trong khung vừa */
+                    margin: 0 auto;
+                    padding: 0 15px;
+                }
+
+                /* Tiêu đề section */
+                .gift-section .section-title {
+                    font-size: 28px;
+                    margin: 0 0 10px 0; /* khoảng cách dưới tiêu đề gọn */
+                    text-align: center;
+                }
+
+                /* Các đoạn văn */
+                .gift-section .gift-desc {
+                    margin: 0;          /* loại bỏ margin mặc định */
+                    line-height: 1.4;   /* khoảng cách dòng gọn */
+                    text-align: center; /* canh giữa */
+                    font-family: 'Quicksand', sans-serif; /* nội dung dễ đọc */
+
+                }
+
+                /* Dòng cảm ơn */
+                .gift-section .gift-desc.thank-you {
+                    margin-top: 5px;    /* khoảng cách nhỏ giữa 2 đoạn */
+                    font-weight: 500;    /* nhấn nhẹ dòng cảm ơn */
+                   font-family: 'Quicksand', sans-serif; /* nội dung dễ đọc */
+
                 }
 
                 .gift-boxes {
@@ -1525,14 +1550,15 @@
         </section>
 
         <!-- Wedding Gift Section -->
-        <section id="gift-box" class="gift-section">
-            <div class="container">
-                <h2 class="section-title">Hộp mừng cưới</h2>
-                <p class="gift-desc">
-                Nếu có thể, bạn hãy tới tham dự Đám cưới, chung vui và Mừng cưới trực tiếp cho chúng mình nha ^^.
-                Cảm ơn bạn rất nhiều!
-                </p>
-
+                <section id="gift-box" class="gift-section">
+                    <div class="container">
+                        <h2 class="section-title">Hộp mừng cưới</h2>
+                        <p class="gift-desc">
+                            Nếu có thể, bạn hãy tới tham dự Đám cưới, chung vui và Mừng cưới trực tiếp cho chúng mình nha ^^.
+                        </p>
+                        <p class="gift-desc thank-you">
+                            Cảm ơn bạn rất nhiều!
+                        </p>
                 <div class="gift-boxes">
                 <!-- Groom QR -->
                 <div class="gift-card">

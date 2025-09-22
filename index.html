@@ -587,44 +587,6 @@
             .gallery-item:hover .gallery-image {
                 filter: brightness(1.1) saturate(1.2);
             }
-            .lightbox {
-  display: none; 
-  position: fixed;
-  z-index: 9999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.9);
-  text-align: center;
-}
-.lightbox-content {
-  max-width: 90%;
-  max-height: 80%;
-  margin-top: 5%;
-  border-radius: 8px;
-}
-.close {
-  position: absolute;
-  top: 20px; right: 30px;
-  font-size: 40px;
-  color: white;
-  cursor: pointer;
-}
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
-  transition: 0.3s;
-  user-select: none;
-}
-.prev { left: 20px; }
-.next { right: 20px; }
-.prev:hover, .next:hover { color: #f1c40f; }
-
 
             /* RSVP Section */
             .rsvp-section {
@@ -1092,6 +1054,89 @@
                 font-size: 2rem;
                 cursor: pointer;
             }
+             .lightbox .prev,
+            .lightbox .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 22px;
+                color: white;
+                padding: 6px 10px;
+                user-select: none;
+                transition: 0.3s;
+            }
+
+            .lightbox .prev {
+                left: 10px;
+            }
+
+            .lightbox .next {
+                right: 10px;
+            }
+
+            .lightbox .prev:hover,
+            .lightbox .next:hover {
+                color: #ccc;
+            }
+            /* Gift Section */
+            /* Thu hẹp khoảng cách trong gift-section */
+                #gift-box .section-title {
+                    margin-bottom: 10px; /* giảm khoảng cách dưới tiêu đề */
+                }
+
+                #gift-box .gift-desc {
+                    margin: 10px 0 20px 0; /* thu hẹp khoảng cách trên & dưới đoạn mô tả */
+                }
+                #gift-box {
+                padding: 20px 0;   /* thu hẹp so với section mặc định */
+                margin-top: 20px;  /* cách section phía trên */
+                margin-bottom: 20px; /* cách section RSVP */
+            }
+                .gift-section {
+                text-align: center;
+                padding: 60px 20px;
+                }
+
+                .gift-desc {
+                margin-bottom: 30px;
+                font-size: 1rem;
+                color: #444;
+                }
+
+                .gift-boxes {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                flex-wrap: wrap;
+                }
+
+                .gift-card {
+                background: #f88d8d;
+                color: white;
+                padding: 20px;
+                border-radius: 12px;
+                width: 250px;
+                text-align: center;
+                position: relative;
+                border: 2px solid #fff;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                }
+
+                .gift-card h3 {
+                margin-bottom: 15px;
+                font-size: 1.2rem;
+                }
+
+                .qr-image {
+                width: 160px;
+                height: 160px;
+                margin-bottom: 15px;
+                border-radius: 8px;
+                background: white;
+                padding: 8px;
+                }
+
         </style>
     </head>
     <body>
@@ -1350,6 +1395,8 @@
   background-color: #d35400; /* đậm hơn khi hover */
 }
 </style>
+
+
                         </div>
                     </div>
                 </div>
@@ -1476,48 +1523,38 @@
                 </div>
             </div>
         </section>
-         <!-- Lightbox (ẩn ban đầu) -->
-    <div id="lightbox" class="lightbox">
-      <span class="close" onclick="closeLightbox()">&times;</span>
-      <img class="lightbox-content" id="lightbox-img">
 
-      <!-- Nút điều hướng -->
-      <a class="prev" onclick="changeImage(-1)">&#10094;</a>
-      <a class="next" onclick="changeImage(1)">&#10095;</a>
-    </div>
+        <!-- Wedding Gift Section -->
+        <section id="gift-box" class="gift-section">
+            <div class="container">
+                <h2 class="section-title">Hộp mừng cưới</h2>
+                <p class="gift-desc">
+                Nếu có thể, bạn hãy tới tham dự Đám cưới, chung vui và Mừng cưới trực tiếp cho chúng mình nha ^^.
+                Cảm ơn bạn rất nhiều!
+                </p>
 
-    <!-- Script quản lý ảnh -->
-    <script>
-    const images = [
-      "image/DVD09735.jpg",
-      "image/DSC03053.JPG",
-      "image/DSC03167_4 (2).jpg",
-      "image/DSC02911.JPG",
-      "image/DVD09690.jpg",
-      "image/DSC02865.JPG",
-      "image/DVD09840.jpg",
-      "image/anh4.jpg"
-    ];
+                <div class="gift-boxes">
+                <!-- Groom QR -->
+                <div class="gift-card">
+                    <h3>Mừng cưới đến chú rể</h3>
+                    <img src="image/stk1.JPG" alt="QR chú rể" class="qr-image" />
+                    <p>Ngân hàng: MB bank</p>
+                    <p>Tên: Đặng Quốc Hiếu</p>
+                    <p>STK: 0780105709008</p>
+                </div>
 
-    let currentIndex = 0;
-
-    function openLightbox(src) {
-      currentIndex = images.indexOf(src);
-      document.getElementById("lightbox").style.display = "block";
-      document.getElementById("lightbox-img").src = src;
-    }
-
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-
-    function changeImage(step) {
-      currentIndex = (currentIndex + step + images.length) % images.length;
-      document.getElementById("lightbox-img").src = images[currentIndex];
-    }
-    </script>
-  </body>
-</html>
+                <!-- Bride QR -->
+                <div class="gift-card">
+                    <h3>Mừng cưới đến cô dâu</h3>
+                    <img src="image/stk2.JPG" alt="QR cô dâu" class="qr-image" />
+                    <p>Ngân hàng: Techcombank</p>
+                    <p>Tên: Phạm Thị Phương Thảo</p>
+                    <p>STK: 19037912480013</p>
+                </div>
+                </div>
+            </div>
+            </section>
+            
         <!-- RSVP Section -->
         <section class="rsvp-section">
             <div class="container">
@@ -1566,7 +1603,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
@@ -1581,15 +1617,14 @@
         </footer>
 
         <!-- Lightbox -->
-        <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-            <span class="lightbox-close">&times;</span>
-            <img
-                class="lightbox-image"
-                id="lightboxImage"
-                alt="Gallery Image"
-            />
-        </div>
+            <div class="lightbox" id="lightbox">
+                <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+                <img class="lightbox-image" id="lightboxImage" alt="Gallery Image" />
 
+                <!-- Nút điều hướng -->
+                <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+                <a class="next" onclick="changeImage(1)">&#10095;</a>
+            </div>
         <script>
             // RSVP Form Submission
         document
@@ -1700,7 +1735,7 @@
                     if ("loading" !== document.readyState) c();
                     else if (window.addEventListener)
                         document.addEventListener("DOMContentLoaded", c);
-                    else {
+                    else {  
                         var e = document.onreadystatechange || function () {};
                         document.onreadystatechange = function (b) {
                             e(b);
@@ -1710,6 +1745,52 @@
                     }
                 }
             })();
+            // Danh sách ảnh trong gallery
+const images = [
+  "image/DVD09735.jpg",
+  "image/DSC03053.JPG",
+  "image/DSC03167_4 (2).jpg",
+  "image/DSC02911.JPG",
+  "image/DVD09690.jpg",
+  "image/DSC02865.JPG",
+  "image/DVD09840.jpg",
+  "image/anh4.jpg"
+];
+
+let currentIndex = 0;
+
+function openLightbox(imageSrc) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+
+  // Lấy index ảnh đang click
+  currentIndex = images.findIndex(img => img === imageSrc);
+
+  lightboxImage.src = imageSrc;
+  lightbox.classList.add("active");
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").classList.remove("active");
+}
+
+function changeImage(step) {
+  currentIndex = (currentIndex + step + images.length) % images.length;
+  document.getElementById("lightboxImage").src = images[currentIndex];
+}
+  // Lắng nghe phím trên bàn phím
+  document.addEventListener("keydown", function (e) {
+    const lightbox = document.getElementById("lightbox");
+    if (!lightbox.classList.contains("active")) return; // chỉ khi lightbox đang mở
+
+    if (e.key === "Escape") {
+      closeLightbox(); // ESC để đóng
+    } else if (e.key === "ArrowLeft") {
+      changeImage(-1); // mũi tên trái
+    } else if (e.key === "ArrowRight") {
+      changeImage(1); // mũi tên phải
+    }
+  });
         </script>
     </body>
 </html>

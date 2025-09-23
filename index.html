@@ -514,6 +514,19 @@
 
     /* Mobile */
     @media (max-width: 768px) {
+      .ceremony-container {
+        grid-template-columns: 1fr;
+        /* đổi thành 1 cột */
+        gap: 30px;
+        text-align: center;
+        /* căn giữa nội dung */
+      }
+
+      .ceremony-image {
+        height: auto;
+        /* để ảnh co giãn tự nhiên */
+      }
+
       .map-section {
         flex-direction: column;
         align-items: center;

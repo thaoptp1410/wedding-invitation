@@ -1788,18 +1788,6 @@
                 </div>
             </div>
         </section>
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-initials">H & T</div>
-                <div class="footer-hashtag">#HieuAndThao</div>
-                <div class="social-icons">
-                    <a href="#" class="social-icon">📘</a>
-                    <a href="#" class="social-icon">📷</a>
-                    <a href="#" class="social-icon">🐦</a>
-                </div>
-            </div>
- 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -1822,42 +1810,45 @@
                 <a class="prev" onclick="changeImage(-1)">&#10094;</a>
                 <a class="next" onclick="changeImage(1)">&#10095;</a>
             </div>
-        <script>
-            // RSVP Form Submission
-        document
-            .getElementById("rsvpForm")
-            .addEventListener("submit", function (e) {
-                e.preventDefault();
+<script>
+    let lastSubmitTime = 0;
+    let isSubmitting = false;
 
-        const name = document.getElementById("name").value;
-        const guests = document.getElementById("guests").value;
-        const message = document.getElementById("message").value;
+document.getElementById("rsvpForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-                // Gửi dữ liệu tới Google Apps Script
-                fetch("https://script.google.com/macros/s/AKfycbz49PUk_hvfaYuADUqPsCCCG7FKYjqT6DgWgQvW4j64L8iUXTYicI5o6U27TVr52S-2-w/exec", {
-                    method: "POST",
-                    mode: "no-cors", // cần để không bị CORS block
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        name: name,
-                        guests: guests,
-                        message: message,
-                    }),
-                })
-                    .then(() => {
-                        alert(
-                            `Cảm ơn ${name}! Lời xác nhận cho ${guests} khách mời đã được lưu lại. Hẹn gặp lại vào ngày hạnh phúc ❤️`,
-                        );
-                        // Reset form
-                        document.getElementById("rsvpForm").reset();
-                    })
-                    .catch((error) => {
-                        console.error("Error:", error);
-                        alert("Có lỗi xảy ra, vui lòng thử lại sau!");
-                    });
-            });
+    const now = Date.now();
+    if (isSubmitting || (now - lastSubmitTime < 30000)) {
+        alert("Bạn đã gửi rồi. Vui lòng chờ 30 giây trước khi gửi lại.");
+        return;
+    }
+
+    const name = document.getElementById("name").value;
+    const guests = document.getElementById("guests").value;
+    const message = document.getElementById("message").value;
+
+    // Đặt cờ chặn
+    isSubmitting = true;
+    lastSubmitTime = now;
+
+    // ⚡ Thông báo ngay lập tức
+    alert(`Cảm ơn ${name}! Lời xác nhận cho ${guests} khách mời đã được lưu lại ❤️`);
+    document.getElementById("rsvpForm").reset();
+
+    // Gửi fetch chạy nền
+    fetch("https://script.google.com/macros/s/AKfycbz49PUk_hvfaYuADUqPsCCCG7FKYjqT6DgWgQvW4j64L8iUXTYicI5o6U27TVr52S-2-w/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, guests, message }),
+    }).catch((error) => {
+        console.error("Error:", error);
+        // Có thể hiện thông báo lỗi bổ sung nếu muốn
+    });
+
+    // Sau 30s mở khóa
+    setTimeout(() => { isSubmitting = false; }, 30000);
+});
 
     // Gallery Lightbox
     function openLightbox(imageSrc) {

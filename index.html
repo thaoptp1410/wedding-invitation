@@ -438,28 +438,31 @@
       background: linear-gradient(135deg, #fff 0%, var(--cream) 100%);
     }
 
-    /* Ảnh */
+    .ceremony-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
     .ceremony-image {
       width: 100%;
-      height: auto; /* bỏ fix cứng */
-      max-height: 400px; /* chỉ giới hạn tối đa nếu muốn */
+      height: 400px;
       object-fit: cover;
       border-radius: 20px;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     }
-
-    /* Responsive cho mobile */
-    @media (max-width: 768px) {
-      .ceremony-container {
-        grid-template-columns: 1fr; /* chỉ còn 1 cột */
-        gap: 20px; /* giảm khoảng cách */
-      }
-
-      .ceremony-image {
-        max-height: 300px; /* mobile nhỏ hơn */
-      }
+  /* Responsive cho mobile */
+  @media (max-width: 768px) {
+    .ceremony-container {
+      grid-template-columns: 1fr; /* chỉ còn 1 cột */
+      gap: 20px; /* giảm khoảng cách */
     }
 
+    .ceremony-image {
+      max-height: 300px; /* mobile nhỏ hơn */
+    }
+  }
     .ceremony-details {
       padding: 40px;
       background: white;

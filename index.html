@@ -431,55 +431,82 @@
       color: var(--text-dark);
       margin-bottom: 10px;
     }
+/* Mobile: thu nhỏ hơn khoảng cách giữa hero-section và story-section nữa */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 15px;
+    margin-bottom: 10px; /* rất sát nhau trên mobile */
+  }
 
+  .story-section {
+    padding: 40px 15px;
+    margin-top: 0;
+  }
+}
     /* Ceremony Details */
-    .ceremony-section {
-      padding: 100px 0;
-      background: linear-gradient(135deg, #ffd4c4 0%, var(--cream) 100%);
-    }
+      .ceremony-section {
+        padding: 100px 0;
+        background: none;
+      }
 
     .ceremony-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
+
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0; /* bỏ padding mặc định */
     }
 
-/* Ảnh */
-.ceremony-image {
-  width: 100%;
-  height: auto; /* bỏ fix cứng */
-  max-height: 400px; /* chỉ giới hạn tối đa nếu muốn */
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
+    .ceremony-image {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      display: block;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
 
-/* Responsive cho mobile */
-@media (max-width: 768px) {
-  .ceremony-container {
-    grid-template-columns: 1fr; /* chỉ còn 1 cột */
-    gap: 20px; /* giảm khoảng cách */
-  }
+    /* Tablet & Mobile (≤768px) */
+    @media (max-width: 768px) {
+      .ceremony-container {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+      }
 
-  .ceremony-image {
-    max-height: 300px; /* mobile nhỏ hơn */
-  }
-}
+      .ceremony-image {
+        width: calc(100% - 30px); /* 15px mỗi bên */
+        max-height: 300px;
+      }
+    }
 
+    /* Mobile nhỏ (≤400px, ví dụ iPhone SE) */
+    @media (max-width: 400px) {
+      .ceremony-image {
+        width: calc(100% - 20px); /* 10px mỗi bên */
+        max-height: 220px;
+      }
+    }
+    
     .ceremony-details {
       padding: 40px;
-      background: white;
+      background: #fff;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       border: 3px solid var(--peach);
     }
-
+    
     .ceremony-title {
       font-family: "Dancing Script", cursive;
       font-size: 2.5rem;
       color: var(--text-dark);
       margin-bottom: 30px;
+      text-align: center;
     }
 
     .detail-item {
@@ -538,6 +565,52 @@
         /* map gọn lại */
       }
     }
+    
+/* Mobile rất nhỏ (iPhone SE, 375px) */
+@media (max-width: 400px) {
+  .ceremony-details {
+    padding: 20px;
+  }
+
+  .ceremony-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .detail-item {
+    font-size: 1rem;
+  }
+
+  .map-card {
+    width: 100%; /* full chiều ngang */
+  }
+
+  .map-placeholder iframe {
+    height: 180px; /* map thấp hơn để vừa */
+  }
+}
+
+/* Mobile tối ưu khoảng cách giữa story và ceremony */
+@media (max-width: 768px) {
+  .ceremony-section {
+    margin-top: 5px;   /* giảm khoảng cách xuống */
+    padding-top: 5px;  /* nếu cần */
+  }
+
+  .story-section {
+    margin-bottom: 5px; /* thu hẹp khoảng cách dưới story */
+  }
+}
+@media (max-width: 400px) {
+  .ceremony-section {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
+  .story-section {
+    margin-bottom: 0px;
+  }
+}
 
     /* Gallery Section */
     .gallery-section {
@@ -1667,7 +1740,66 @@
       </div>
     </div>
   </section>
-
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <div class="container">
+                <div class="rsvp-card">
+                    <h2 class="rsvp-title">Xác nhận tham gia</h2>
+                    <form id="rsvpForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name"
+                                >Họ và tên</label
+                            >
+                            <input
+                                type="text"
+                                id="name"
+                                class="form-input"
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="guests"
+                                >Số lượng tham dự</label
+                            >
+                            <input
+                                type="number"
+                                id="guests"
+                                class="form-input"
+                                min="1"
+                                max="5"
+                                value=""
+                                required
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message"
+                                >Đôi lời yêu thương</label
+                            >
+                            <textarea
+                                id="message"
+                                class="form-textarea"
+                                placeholder="Hãy gửi lời chúc tốt đẹp đến chúng mình nhé!"
+                            ></textarea>
+                        </div>
+                        <button type="submit" class="rsvp-button">
+                            Xác nhận
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-initials">H & T</div>
+                <div class="footer-hashtag">#HieuAndThao</div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">📘</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="#" class="social-icon">🐦</a>
+                </div>
+            </div>
+ 
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
